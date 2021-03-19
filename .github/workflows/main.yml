@@ -22,6 +22,6 @@ jobs:
       - name: Build Docker Image and Deploy to k8s
         run: |
           gcloud auth configure-docker --quiet
-          docker build . -f Dockerfile -t "nasr/nginx:$$(git rev-parse --short HEAD)"
-          docker tag "nasr/nginx:$$(git rev-parse --short HEAD)" gcr.io/nasr-learn-286800/nasr/nginx:latest
+          docker build . -f Dockerfile -t "nasr/nginx:$(git rev-parse --short HEAD)"
+          docker tag "nasr/nginx:$(git rev-parse --short HEAD)" gcr.io/nasr-learn-286800/nasr/nginx:latest
           docker push "gcr.io/nasr-learn-286800/nasr/nginx"
